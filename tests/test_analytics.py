@@ -1,8 +1,8 @@
 import unittest  # grab the built in test stuff
-# yeah blank line, breathing room
+
 from atlas.analytics import class_mastery, student_mastery, weakest_topics  # pull in the three math funcs
-# yeah blank line, keep things airy
-# yeah one more for looks
+
+
 def sample():  # hey this just makes fake data so we dont need files here
     questions = {  # tiny fake question set, three questions
         "Q1": {"max_points": 10, "topics": ["Fractions"]},  # q1 is fractions only
@@ -15,8 +15,8 @@ def sample():  # hey this just makes fake data so we dont need files here
         "S03": {"Q1": 10, "Q2": 6, "Q3": 9},  # s03 is vibing, solid almost everywhere
     }  # ok scores done
     return questions, scores  # hand both back to whoever called
-# yeah blank line, split helper from tests
-# yeah breathing room again
+
+
 class TestAnalytics(unittest.TestCase):  # yeah our little test box for the math
     def test_class_mastery(self):  # hey this checks the class averages are right
         questions, scores = sample()  # grab the fake data
@@ -33,7 +33,7 @@ class TestAnalytics(unittest.TestCase):  # yeah our little test box for the math
         self.assertAlmostEqual(result["S01"]["Equations"], 55.0, places=2)  # s01 equations should be fifty five
     def test_weakest_sorted(self):  # hey this checks worst first sorting
         self.assertEqual(weakest_topics({"Fractions": 73.3, "Equations": 70.0}), ["Equations", "Fractions"])  # equations is lower so it should come first
-# yeah blank line, gap before runner
-# yeah last breather
+
+
 if __name__ == "__main__":  # only runs when you run this file directly
     unittest.main()  # kick off the tests, let it do its thing
