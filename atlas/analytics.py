@@ -31,7 +31,7 @@ def student_mastery(questions: dict, scores: dict) -> dict:  #same math but sepa
     for sid, sid_points in scores.items():  # loop students, like s01 then s02
         totals = topic_totals(questions, sid_points)  # reuse the helper above on just this student sheet
         out[sid] = {t: (v["earned"] / v["possible"] * 100 if v["possible"] else 0.0) for t, v in totals.items()}  # same divide scored by possible, like s01 fractions 14 over 20 is 70
-    return out  # hand back all report cards
+    return out
 
 
 def weakest_topics(class_pct: dict) -> list:  # sorts topics so worst score comes first
